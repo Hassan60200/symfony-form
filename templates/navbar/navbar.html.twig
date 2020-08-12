@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-white bg-dark">
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link text-white" href="{{ path('accueil') }}"><i class="fas fa-home"></i> Accueil
+				</a>
+			</li>
+		</ul>
+	</div>
+	{% if app.user %}
+		<div class="d-flex flex-row">
+			<a class="nav-link text-white btn btn-danger" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+		</div>
+	{% else %}
+		<div class="d-flex flex-row">
+			<a class="nav-link text-white btn btn-success mr-2" href="{{ path('app_register') }}"><i class="fas fa-user-plus"></i> Inscription
+			</a>
+			<a class="nav-link text-white btn btn-danger ml-2" href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt"></i> Connexion
+			</a>
+		</div>
+	{% endif %}
+</nav>

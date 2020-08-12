@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil Blog
+{% endblock %}
+
+{% block body %}
+	{% include "navbar/navbar.html.twig" %}
+
+	<div class="container my-5">
+
+		{% for article in articles %}
+			<div class="card">
+				<img class="card-img-top" src="" alt="Card image cap">
+				<div class="card-body">
+					<h4 class="card-title">{{ article.titre }}</h4>
+					<div>{{ article.contenu | raw}}</div>
+				</div>
+				<div class="card-footer">
+					<span class="badge badge-danger">{{ article.createdAt | date('d/m/Y à h:i') }}</span>
+					{% for categorie in article.categories %}
+						<span class="badge badge-primary">{{ categorie.nom }}</span>
+					{% endfor %}
+					<span class="badge badge-success">mot_cle</span>
+				</div>
+			</div>
+		{% else %}
+			<p>Il n'y a aucun article</p>
+		{% endfor %}
+	</div>
+{% endblock %}

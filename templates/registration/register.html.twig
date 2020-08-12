@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+		{% include "navbar/navbar.html.twig" %}
+	<div class="container">
+
+		<div class="row">
+			<div class="col-12">
+				<h1 class="jumbotron text-center my-5">Créer votre compte</h1>
+				<div class="border border-dark bg-white my-5 p-5">
+					{{ form_start(registrationForm) }}
+					{{ form_row(registrationForm.email) }}
+					{{ form_row(registrationForm.plainPassword) }}
+					{{ form_row(registrationForm.agreeTerms) }}
+					<button class="btn btn-success">Création</button>
+					{{ form_end(registrationForm) }}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
